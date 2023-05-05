@@ -1,13 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import ScrapeForm from './components/ScrapeForm';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+  const [titles, setTitles] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const { data } = await axios.get('/');
+
+      setTitles(data);
+    }
+
+    fetchData();
+  }, []);
+
   return (
-      <div className='flex flex-col items-center p-8'>
-        <h1 className='bg-blue-400 w-full text-center font-bold text-lg p-4'>Web Scraper</h1>
-        <ScrapeForm />
-      </div>
+    <div>
+      <h1>Top Stories on Hacker News</h1>
+      <ul>
+        {titles.map((title, index) => (
+          <li key={index}>
+            <a href={title.link}>{title.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
