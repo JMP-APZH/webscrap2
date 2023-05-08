@@ -5,6 +5,7 @@ const axios = require('axios');
 const app = express();
 
 app.get('/scrape', (req, res) => {
+  
   const url = 'https://martinique.123-click.com/store/frais';
   
   axios.get(url)
@@ -19,21 +20,22 @@ app.get('/scrape', (req, res) => {
         const prix = $(this).find('p.price-full').text()
         const img = $(this).find('img.owl-lazy').attr('data-src')
         const quantite = $(this).find('div.desc-small-text').text()
-        const quantite2 = $(this).find('div.poids-suffixe-holder').text()
-        const prixunite = $(this).find('div.unity-price').text()
+        const quantite2 = $(this).find('div.poids-suffixe-holder').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
+        const prixunite = $(this).find('div.unity-price').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
         const nutriscore = $(this).find('div.picto-vignette-holder').find('img').attr('src')
         articles.push({
             nom,
             prix,
             quantite,
             quantite2,
-             // prixunite,
-             img,
+            prixunite,
+            img,
             nutriscore,
             url,
         })
       })
-      console.log(articles)
+      console.log('articles from server:', articles)
+      res.header('Access-Control-Allow-Origin', '*');
       res.send(articles);
    }).catch(error => {
       console.log(error);
@@ -41,4 +43,4 @@ app.get('/scrape', (req, res) => {
     });
   });
   
-  app.listen(3001, () => console.log('Server running on port 3001'));
+  app.listen(3010, () => console.log('Server running on port 3010'));

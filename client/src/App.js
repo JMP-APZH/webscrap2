@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ScrapePage from './components/ScrapePage';
 
 function App() {
-  const [titles, setTitles] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get('/');
+      const { data } = await axios.get('/scrape');
 
-      setTitles(data);
+      setArticles(data);
+      
     }
 
     fetchData();
+    // console.log('data: ', articles);
   }, []);
 
   return (
     <div>
-      <h1>Top Stories on Hacker News</h1>
+      <div className='w-full bg-blue-300'>
+        <ScrapePage />
+      </div>
+      
+      <h1>Liste d'articles 123-click </h1>
       <ul>
-        {titles.map((title, index) => (
+        {/* {data.map((item, index) => (
           <li key={index}>
-            <a href={title.link}>{title.title}</a>
+            <p href={item.nom}>{item.quantite}</p>
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

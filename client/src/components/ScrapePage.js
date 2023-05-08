@@ -2,25 +2,40 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const ScrapePage = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [data, setData] = useState([]);
+  // const [quantite, setQuantite] = useState('');
 
   const handleClick = () => {
-    axios.get('http://localhost:3001/scrape')
+    axios.get('http://localhost:3010/scrape')
       .then(response => {
-        setTitle(response.data.title);
-        setDescription(response.data.description);
+        console.log('data from response:', response.data[0])
+        setData(response.data)
+        
+        // const masterdata = response.data
+        // setMasterdata(response.data[0]);
+        // setQuantite(response.quantite);
+        // setNom(articles.nom);
+        // setQuantite(articles.quantite);
+        // console.log('from ScrapePage:', masterdata)
+        // (response)
       })
       .catch(error => {
         console.log(error);
       });
+      
   };
 
   return (
     <div>
       <button onClick={handleClick}>Scrape Page</button>
-      <h2>{title}</h2>
-      <p>{description}</p>
+      {data.map((item, index) => (
+        <div key={index}>
+          <p> {item.nom} </p>
+          <p> {item.prix} </p>
+        </div>
+        
+      ))}
+      
     </div>
   );
 };
