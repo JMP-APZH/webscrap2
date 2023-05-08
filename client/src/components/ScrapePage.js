@@ -32,6 +32,23 @@ const ScrapePage = () => {
         <div key={index}>
           <p> {item.nom} </p>
           <p> {item.prix} </p>
+          <p> {item.quantite2} </p>
+          <p> {item.prixunite} </p>
+          <img
+            className=""
+            src={item.img}
+            width="110"
+            height="110"
+          />
+          <img
+            className=""
+            src={item.nutriscore}
+            width="110"
+            height="110"
+          />
+          <p> {item.url} </p>
+
+          
         </div>
         
       ))}
