@@ -6,6 +6,8 @@ import { Router, Route, Routes } from "react-router-dom"
 import Navbar from "./Navbar"
 import Home from "./pages/Home"
 import Dairy from "./pages/Dairy"
+import Boissons from "./pages/Boissons"
+import Entretien from './pages/Entretien';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -31,8 +33,13 @@ function App() {
           <Routes>
           
             <Route path="/" element={<Home />} />
-            {/* <Route path="/pricing" element={<Pricing />} /> */}
+            <Route path="/boissons" element={<Boissons />} />
             <Route path="/dairy" element={<Dairy />} />
+            <Route path="/entretien" element={<Entretien />} />
+            <Route path="/fruits-legumes" element={<Dairy />} />
+            <Route path="/surgeles" element={<Dairy />} />
+            <Route path="/viandes-poissons" element={<Dairy />} />
+
           </Routes>
         {/* </Router> */}
         

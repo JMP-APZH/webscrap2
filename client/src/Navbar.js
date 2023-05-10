@@ -8,9 +8,9 @@ export default function Navbar() {
       </Link>
       <div className="flex flex-col items-center p-6 text-xl">
         <div className="flex pb-8">
-        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Boissons</CustomLink>
+        <CustomLink to="/boissons" className='text-white font-bold border p-2'>Boissons</CustomLink>
         <CustomLink to="/dairy" className='text-white font-bold border p-2'>Dairy</CustomLink>
-        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Entretien</CustomLink>
+        <CustomLink to="/entretien" className='text-white font-bold border p-2'>Entretien</CustomLink>
         </div>
         <div className="flex">
         <CustomLink to="/dairy" className='text-white font-bold border p-2'>Fruits & Légumes</CustomLink>
