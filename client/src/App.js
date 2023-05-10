@@ -5,7 +5,7 @@ import ScrapePage from './components/ScrapePage';
 import { Router, Route, Routes } from "react-router-dom"
 import Navbar from "./Navbar"
 import Home from "./pages/Home"
-import About from "./pages/About"
+import Dairy from "./pages/Dairy"
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -32,14 +32,12 @@ function App() {
           
             <Route path="/" element={<Home />} />
             {/* <Route path="/pricing" element={<Pricing />} /> */}
-            <Route path="/about" element={<About />} />
+            <Route path="/dairy" element={<Dairy />} />
           </Routes>
         {/* </Router> */}
         
       </div>
-      <div className='w-full bg-blue-300'>
-        <ScrapePage />
-      </div>
+      
       
       {/* <h1>Liste d'articles 123-click </h1> */}
       {/* <ul> */}
