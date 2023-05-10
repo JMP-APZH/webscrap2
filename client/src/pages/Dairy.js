@@ -29,11 +29,16 @@ const Dairy = () => {
 
     return (
         <>
-        <h1 className='text-center'>Dairy prices review</h1>
-            <div>
-           <div className='text-center bg-black text-white w-40 rounded-full mx-5'>
+        <div className='flex flex-col items-center bg-blue-500 w-screen h-screen p-4'>
+        <div>
+        <h1 className='text-center pb-6'>Dairy prices review</h1>
+        <div className='text-center bg-black text-white w-72 rounded-full mx-5'>
            <button onClick={handleClick}>Scrape Dairy</button>
            </div> 
+        </div>
+        
+            <div>
+          
       
       <div className='grid grid-cols-2'>
       {data.map((item, index) => (
@@ -81,6 +86,8 @@ const Dairy = () => {
       
       
     </div>
+        </div>
+        
         </>
     )
      

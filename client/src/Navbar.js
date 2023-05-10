@@ -2,14 +2,24 @@ import { Link, useMatch, useResolvedPath, useLocation } from "react-router-dom"
 
 export default function Navbar() {
   return (
-    <nav className="nav text-center p-8">
-      <Link to="/" className="site-title">
+    <nav className="nav text-center p-8 w-full">
+      <Link to="/" className="site-title text-2xl text-white">
         Project Prices Observer
       </Link>
-      <ul>
-        {/* <CustomLink to="/pricing">Pricing</CustomLink> */}
-        <CustomLink to="/dairy">Dairy</CustomLink>
-      </ul>
+      <div className="flex flex-col items-center p-6 text-xl">
+        <div className="flex pb-8">
+        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Boissons</CustomLink>
+        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Dairy</CustomLink>
+        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Entretien</CustomLink>
+        </div>
+        <div className="flex">
+        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Fruits & Légumes</CustomLink>
+        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Surgelés</CustomLink>
+        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Viandes & Poissons</CustomLink>
+        </div>
+        
+        
+      </div>
     </nav>
   )
 }
@@ -20,7 +30,9 @@ function CustomLink({ to, children, ...props }) {
 
   return (
     <li className={isActive ? "active" : ""}>
-      <Link to={to} {...props}>
+      <Link 
+        className=""
+        to={to} {...props}>
         {children}
       </Link>
     </li>

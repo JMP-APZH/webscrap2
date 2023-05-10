@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className='w-full bg-black'>
        <Navbar />
       <div className="container">
         {/* <Router> */}
