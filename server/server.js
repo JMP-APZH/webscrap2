@@ -18,6 +18,7 @@ app.get('/scrape', (req, res) => {
         const nom = $(this).find('a').attr('title')
         const url = $(this).find('a').attr('href')
         const prix = $(this).find('p.price-full').text()
+        const prixspecial = $(this).find('p.price-special').text()
         const img = $(this).find('img.owl-lazy').attr('data-src')
         const quantite = $(this).find('div.desc-small-text').text()
         const quantite2 = $(this).find('div.poids-suffixe-holder').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
@@ -26,6 +27,7 @@ app.get('/scrape', (req, res) => {
         articles.push({
             nom,
             prix,
+            prixspecial,
             quantite,
             quantite2,
             prixunite,
