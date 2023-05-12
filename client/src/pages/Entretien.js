@@ -4,13 +4,18 @@ import axios from 'axios';
 
 const Entretien = () => {
 
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+  const web = "https://martinique.123-click.com"
   // const [quantite, setQuantite] = useState('');
+  
+
 
   const handleClick = () => {
     axios.get('http://localhost:3012/scrape-entretien')
       .then(response => {
-        console.log('data from response:', response.data[0])
+        console.log('data from response:', response.data[13].nutriscore)
+        // const web = "https://martinique.123-click.com"
+        // const srcmodif = web.concat(item.nutriscore)
         setData(response.data)
         
         // const masterdata = response.data
@@ -29,6 +34,7 @@ const Entretien = () => {
 
     return (
         <>
+        <h1 className="text-yellow-400 text-center w-screen">Entretien</h1>
         <div className='flex flex-col items-center bg-blue-500 w-screen h-screen p-4'>
         <div>
         <h1 className='text-center pb-6'>Entretien prices review</h1>
@@ -63,7 +69,7 @@ const Entretien = () => {
               <div className='flex justify-center bg-pink-400 w-60'>
                 <img
                   className="p-4"
-                  src={item.nutriscore}
+                  src={web.concat(item.nutrition)}
                   width="110"
                   height="110"
                 />

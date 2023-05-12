@@ -10,7 +10,7 @@ const Boissons = () => {
   const handleClick = () => {
     axios.get('http://localhost:3011/scrape-boissons')
       .then(response => {
-        console.log('data from response:', response.data[0])
+        console.log('data from response:', response)
         setData(response.data)
         
         // const masterdata = response.data
@@ -29,6 +29,7 @@ const Boissons = () => {
 
     return (
         <>
+        <h1 className="text-yellow-400 text-center w-screen">Boissons</h1>
         <div className='flex flex-col items-center bg-blue-500 w-screen h-screen p-4'>
         <div>
         <h1 className='text-center pb-6'>Boissons prices review</h1>

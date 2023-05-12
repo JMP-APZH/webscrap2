@@ -23,7 +23,7 @@ app.get('/scrape-entretien', (req, res) => {
         const quantite = $(this).find('div.desc-small-text').text()
         const quantite2 = $(this).find('div.poids-suffixe-holder').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
         const prixunite = $(this).find('div.unity-price').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
-        const nutriscore = $(this).find('div.picto-vignette-holder').find('img').attr('src')
+        const nutriscore = $(this).find('div.picto-vignette-item').find('img').attr('src')
         articles.push({
             nom,
             prix,

@@ -29,6 +29,7 @@ const Dairy = () => {
 
     return (
         <>
+        <h1 className="text-yellow-400 text-center w-screen">Dairy</h1>
         <div className='flex flex-col items-center bg-blue-500 w-screen h-screen p-4'>
         <div>
         <h1 className='text-center pb-6'>Dairy prices review</h1>
