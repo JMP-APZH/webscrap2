@@ -45,14 +45,14 @@ export default function Home() {
       {data.map((item, index) => (
         <div key={index} className="text-center p-4">
           
-              <p className='text-center'> {item.nomcat} </p>
+              <p className='text-center bg-black text-white rounded-full'> {item.nomcat} </p>
               
-              <div className='flex justify-center w-60'>
+              <div className='flex justify-center w-60 rounded-xl'>
                 <img
                   className="p-4"
                   src={item.img}
-                  width="210"
-                  height="210"
+                  width="510"
+                  height="510"
                 />
               </div>
 

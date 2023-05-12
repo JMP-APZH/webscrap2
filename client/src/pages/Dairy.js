@@ -6,13 +6,17 @@ const Dairy = () => {
 
     const [data, setData] = useState([]);
   // const [quantite, setQuantite] = useState('');
+  // const web = 'https://martinique.123-click.com';
 
   const handleClick = () => {
     axios.get('http://localhost:3010/scrape')
       .then(response => {
-        console.log('data from response:', response.data[0])
+        console.log('data from response:', response.data)
         setData(response.data)
         
+        // const web = "https://martinique.123-click.com"
+        // const srcmodif = web.concat(response.data[0].nutriscore)
+
         // const masterdata = response.data
         // setMasterdata(response.data[0]);
         // setQuantite(response.quantite);
@@ -60,21 +64,24 @@ const Dairy = () => {
                 <p> {item.prixspecial} </p>
                 <p> {item.quantite2} </p>
                 <p> {item.prixunite} </p>
+                <p> {item.nutriscore} </p>
+                <p> {item.nutrifull} </p>
               </div>
-              <div className='flex justify-center bg-pink-400 w-60'>
+              
+              </div>
+              <div className='flex justify-center bg-pink-400 w-24'>
                 <img
                   className="p-4"
-                  src={item.nutriscore}
-                  width="110"
-                  height="110"
+                  src={item.nutrifull}
+                  width="150"
+                  height="150"
                 />
               </div>
-              </div>
               
               
               
               
-              <p> {item.url} </p>
+              {/* <p> {item.url} </p> */}
             {/* </li> */}
           {/* </ul> */}
           

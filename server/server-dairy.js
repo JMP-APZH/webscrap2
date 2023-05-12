@@ -13,6 +13,7 @@ app.get('/scrape', (req, res) => {
         const $ = cheerio.load(response.data);
   
         const articles = []
+        // const web = 'https://martinique.123-click.com'
   
         $('div.productInList', response.data).each(function() {
         const nom = $(this).find('a').attr('title')
@@ -23,7 +24,11 @@ app.get('/scrape', (req, res) => {
         const quantite = $(this).find('div.desc-small-text').text()
         const quantite2 = $(this).find('div.poids-suffixe-holder').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
         const prixunite = $(this).find('div.unity-price').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
-        const nutriscore = $(this).find('div.picto-vignette-holder').find('img').attr('src')
+        // const nutriscore = $(this).find('div.buy_price price-flex').find('div.picto-item nutri-score-item').find('img').attr('src')
+        // const nutriscore = $(this).find('img').attr('src')
+        const nutriscore = $(this).find('div.picto-item').find('img').attr('src')
+        const web = 'https://martinique.123-click.com'
+        const nutrifull = web.concat(nutriscore)
         articles.push({
             nom,
             prix,
@@ -32,6 +37,7 @@ app.get('/scrape', (req, res) => {
             quantite2,
             prixunite,
             img,
+            nutrifull,
             nutriscore,
             url,
         })
