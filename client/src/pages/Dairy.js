@@ -33,11 +33,11 @@ const Dairy = () => {
 
     return (
         <>
-        <h1 className="text-yellow-400 text-center w-screen">Dairy</h1>
-        <div className='flex flex-col items-center bg-blue-500 w-screen h-screen p-4'>
+        <h1 className="text-yellow-400 text-center w-screen p-1">Dairy</h1>
+        <div className='flex flex-col items-center bg-white w-screen h-screen p-4'>
         <div>
         <h1 className='text-center'>Dairy prices review</h1>
-        <div className='text-center bg-black text-white w-72 rounded-full m-5'>
+        <div className='text-center bg-black text-white w-60 rounded-full m-5'>
            <button onClick={handleClick}>Scrape Dairy</button>
            </div> 
         </div>
@@ -66,11 +66,11 @@ const Dairy = () => {
                 />
                 
                 </div>
-                <div className='flex items-center'>
+                <div className='flex justify-between items-center'>
                   <p className='text-center font-semibold px-4'> {item.nom} </p>
                   <div>
-                    <p className='text-center font-semibold p-4 text-red-700 border border-blue-700 mb-1 text-xs'> {item.prix} </p>
-                    <p className='text-center font-semibold p-4 text-green-700 border border-red-700 text-xs'> {item.prixspecial} </p>
+                    <p className='text-center font-semibold p-2 text-red-700 border border-blue-700 mb-1 text-xs'> {item.prix} </p>
+                    <p className='text-center font-semibold p-2 text-green-700 border border-red-700 text-xs'> {item.prixspecial} </p>
                     <p className='text-xs'> {item.prixunite} </p>
                   </div>
                   

@@ -2,7 +2,7 @@ import { Link, useMatch, useResolvedPath, useLocation } from "react-router-dom"
 
 export default function Navbar() {
   return (
-    <nav className="nav text-center p-8 w-full">
+    <nav className="nav text-center p-4 w-full">
       <Link to="/" className="site-title text-2xl text-white">
         Project Prices Observer
       </Link>
