@@ -30,7 +30,7 @@ export default function Home() {
     return (
         <>
         <h1 className="text-yellow-400 text-center w-screen">Categories</h1>
-        <div className='flex flex-col items-center bg-blue-500 w-screen h-screen p-4'>
+        <div className='flex flex-col items-center bg-blue-500 w-screen h-auto p-4'>
         <div>
         <h1 className='text-center pb-6'>Category overview</h1>
         <div className='text-center bg-black text-white w-72 rounded-full mx-5'>
@@ -41,13 +41,13 @@ export default function Home() {
             <div>
           
       
-      <div className='grid grid-cols-2'>
+      <div className='grid grid-cols-2 bg-blue-500 h-auto'>
       {data.map((item, index) => (
         <div key={index} className="text-center p-4">
           
               <p className='text-center'> {item.nomcat} </p>
               
-              <div className='flex justify-center bg-pink-400 w-60'>
+              <div className='flex justify-center w-60'>
                 <img
                   className="p-4"
                   src={item.img}

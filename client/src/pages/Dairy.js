@@ -41,7 +41,7 @@ const Dairy = () => {
             <div>
           
       
-      <div className='grid grid-cols-2'>
+      <div className='grid grid-cols-2 bg-blue-500 h-auto'>
       {data.map((item, index) => (
         <div key={index} className="text-center p-4">
           {/* <ul key={index}> */}
