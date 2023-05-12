@@ -51,8 +51,8 @@ export default function Home() {
                 <img
                   className="p-4"
                   src={item.img}
-                  width="110"
-                  height="110"
+                  width="210"
+                  height="210"
                 />
               </div>
 

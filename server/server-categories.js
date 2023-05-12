@@ -14,12 +14,12 @@ app.get('/scrape-categories', (req, res) => {
   
         const categories = []
   
-        $('div.productInList', response.data).each(function() {
-        const nomcat = $(this).find('p.subtitle-item').text()
+        $('a.category-item', response.data).each(function() {
+        const nomcat = $(this).find('div.category-infos').find('p.subtitle-item').text()
         // const url = $(this).find('a').attr('href')
         // const prix = $(this).find('p.price-full').text()
         // const prixspecial = $(this).find('p.price-special').text()
-        const img = $(this).find('div.category-image').find('img').attr('data-src')
+        const img = $(this).find('div.category-image').find('img').attr('src')
         // const quantite = $(this).find('div.desc-small-text').text()
         // const quantite2 = $(this).find('div.poids-suffixe-holder').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
         // const prixunite = $(this).find('div.unity-price').text().replaceAll('\n', '').replaceAll('\t', '').replaceAll(' ', '')
