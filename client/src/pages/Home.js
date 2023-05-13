@@ -32,7 +32,7 @@ export default function Home() {
         <h1 className="text-yellow-400 text-center w-screen">Categories</h1>
         <div className='flex flex-col items-center bg-blue-500 w-screen h-auto p-4'>
         <div>
-        <h1 className='text-center pb-6'>Category overview</h1>
+        <h1 className='text-center font-bold text-xl text-white pb-6'>Category overview</h1>
         <div className='text-center bg-black text-white w-72 rounded-full mx-5'>
            <button onClick={handleClick}>Scrape Categories</button>
            </div> 
