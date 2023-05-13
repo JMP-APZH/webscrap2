@@ -15,7 +15,6 @@ const Dairy = () => {
       .catch(error => {
         console.log(error);
       });
-      
   };
 
     return (
