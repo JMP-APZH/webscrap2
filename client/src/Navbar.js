@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex">
         <CustomLink to="/fruits-legumes" className='text-white font-bold border p-2'>Fruits & Légumes</CustomLink>
         <CustomLink to="/surgeles" className='text-white font-bold border p-2'>Surgelés</CustomLink>
-        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Viandes & Poissons</CustomLink>
+        <CustomLink to="/viandes-poissons" className='text-white font-bold border p-2'>Viandes & Poissons</CustomLink>
         </div>
         
         

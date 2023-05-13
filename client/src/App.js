@@ -10,6 +10,7 @@ import Boissons from "./pages/Boissons"
 import Entretien from './pages/Entretien';
 import FruitsLegumes from './pages/FruitsLegumes';
 import Surgeles from './pages/Sugeles';
+import ViandesPoissons from './pages/ViandesPoissons';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -28,10 +29,12 @@ function App() {
   }, []);
 
   return (
-    <div className='w-full bg-black'>
-       <Navbar />
+    <div className='w-full bg-black'>$
+
+      <Navbar />
+
       <div className="container">
-        {/* <Router> */}
+
           <Routes>
           
             <Route path="/" element={<Home />} />
@@ -40,10 +43,9 @@ function App() {
             <Route path="/entretien" element={<Entretien />} />
             <Route path="/fruits-legumes" element={<FruitsLegumes />} />
             <Route path="/surgeles" element={<Surgeles />} />
-            <Route path="/viandes-poissons" element={<Dairy />} />
+            <Route path="/viandes-poissons" element={<ViandesPoissons />} />
 
           </Routes>
-        {/* </Router> */}
         
       </div>
       

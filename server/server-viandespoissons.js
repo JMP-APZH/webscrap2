@@ -4,9 +4,9 @@ const axios = require('axios');
 
 const app = express();
 
-app.get('/scrape', (req, res) => {
+app.get('/scrape-viandespoissons', (req, res) => {
   
-  const url = 'https://martinique.123-click.com/store/frais';
+  const url = 'https://martinique.123-click.com/store/viandes-poissons';
   
   axios.get(url)
     .then(response => {
@@ -48,4 +48,4 @@ app.get('/scrape', (req, res) => {
     });
   });
   
-  app.listen(3010, () => console.log('Server Dairy running on port 3010'));
+  app.listen(3015, () => console.log('Server Viandes & Poissons running on port 3015'));
