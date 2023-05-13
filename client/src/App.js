@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import Dairy from "./pages/Dairy"
 import Boissons from "./pages/Boissons"
 import Entretien from './pages/Entretien';
+import FruitsLegumes from './pages/FruitsLegumes';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -36,7 +37,7 @@ function App() {
             <Route path="/boissons" element={<Boissons />} />
             <Route path="/dairy" element={<Dairy />} />
             <Route path="/entretien" element={<Entretien />} />
-            <Route path="/fruits-legumes" element={<Dairy />} />
+            <Route path="/fruits-legumes" element={<FruitsLegumes />} />
             <Route path="/surgeles" element={<Dairy />} />
             <Route path="/viandes-poissons" element={<Dairy />} />
 

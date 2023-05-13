@@ -13,7 +13,7 @@ export default function Navbar() {
         <CustomLink to="/entretien" className='text-white font-bold border p-2'>Entretien</CustomLink>
         </div>
         <div className="flex">
-        <CustomLink to="/dairy" className='text-white font-bold border p-2'>Fruits & Légumes</CustomLink>
+        <CustomLink to="/fruits-legumes" className='text-white font-bold border p-2'>Fruits & Légumes</CustomLink>
         <CustomLink to="/dairy" className='text-white font-bold border p-2'>Surgelés</CustomLink>
         <CustomLink to="/dairy" className='text-white font-bold border p-2'>Viandes & Poissons</CustomLink>
         </div>

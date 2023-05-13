@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-const Boissons = () => {
+const FruitsLegumes = () => {
 
-    const [data, setData] = useState([]);
-  // const [quantite, setQuantite] = useState('');
+   const [data, setData] = useState([]);
 
   const handleClick = () => {
-    axios.get('http://localhost:3011/scrape-boissons')
+    axios.get('http://localhost:3013/scrape-fruitslegumes')
     .then(response => {
       console.log('data from response:', response.data)
       setData(response.data)
@@ -21,13 +20,13 @@ const Boissons = () => {
 
     return (
       <>
-      <h1 className="text-yellow-400 text-center w-screen p-1">Boissons</h1>
+      <h1 className="text-yellow-400 text-center w-screen p-1">Fruits & Légumes</h1>
 
       <div className='flex flex-col items-center bg-white w-screen h-screen p-4'>
         <div>
-          <h1 className='text-center'>Boissons prices review</h1>
+          <h1 className='text-center'>Fruits & Légumes prices review</h1>
           <div className='text-center bg-black text-white w-60 rounded-full m-5'>
-            <button onClick={handleClick}>Scrape Boissons</button>
+            <button onClick={handleClick}>Scrape Fruits & Légumes</button>
           </div> 
         </div>
       <div>
@@ -76,4 +75,4 @@ const Boissons = () => {
      
   }
 
-  export default Boissons;
+  export default FruitsLegumes;

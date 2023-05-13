@@ -4,9 +4,9 @@ const axios = require('axios');
 
 const app = express();
 
-app.get('/scrape-boissons', (req, res) => {
+app.get('/scrape-fruitslegumes', (req, res) => {
   
-  const url = 'https://martinique.123-click.com/store/boissons';
+  const url = 'https://martinique.123-click.com/store/fruits-legumes';
   
   axios.get(url)
     .then(response => {
@@ -45,4 +45,4 @@ app.get('/scrape-boissons', (req, res) => {
     });
   });
   
-  app.listen(3011, () => console.log('Server Boissons running on port 3011'));
+  app.listen(3013, () => console.log('Server Fruits & Légumes running on port 3013'));

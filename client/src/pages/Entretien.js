@@ -12,15 +12,15 @@ const Entretien = () => {
 
   const handleClick = () => {
     axios.get('http://localhost:3012/scrape-entretien')
-      .then(response => {
-        console.log('data from response:', response.data[13].nutriscore)
-        setData(response.data)
-      })
-      .catch(error => {
-        console.log(error);
-      });
-      
-  };
+    .then(response => {
+      console.log('data from response:', response.data)
+      setData(response.data)
+    })
+    .catch(error => {
+      console.log(error);
+    });
+    
+};
 
     return (
         <>
