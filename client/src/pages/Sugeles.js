@@ -33,7 +33,7 @@ const Surgeles = () => {
       <div className='grid grid-cols-2 bg-white h-auto'>
         {data.map((item, index) => (
           <div key={index} className="text-center p-4 border m-2">
-            <div className='flex right-0 w-24 absolute '>
+            <div className='flex w-24 absolute '>
               <img
                 className="p-4"
                 src={item.nutrifull}
