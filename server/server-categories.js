@@ -2,12 +2,19 @@ const express = require('express');
 const cheerio = require('cheerio');
 const axios = require('axios');
 
+const cors = require("cors");
+
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+app.use(cors({
+  origin:"https://main--webscraping972.netlify.app/",
+  method: ["GET", "POST", "PUT", "DELETE"]
+}))
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
 app.get('/scrape-categories', (req, res) => {
   
