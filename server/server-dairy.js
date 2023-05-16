@@ -2,7 +2,14 @@ const express = require('express');
 const cheerio = require('cheerio');
 const axios = require('axios');
 
+const cors = require("cors");
+
 const app = express();
+
+app.use(cors({
+  origin:"https://main--webscraping972.netlify.app/",
+  method: ["GET", "POST", "PUT", "DELETE"]
+}))
 
 app.get('/scrape', (req, res) => {
   
