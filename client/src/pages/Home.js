@@ -8,7 +8,8 @@ export default function Home() {
   // const [quantite, setQuantite] = useState('');
 
   const handleClick = () => {
-    axios.get('http://localhost:3020/scrape-categories')
+    // axios.get('http://localhost:3020/scrape-categories')
+      axios.get('https://webscrap972.onrender.com/scrape-categories')
       .then(response => {
         console.log('data from response:', response.data)
         setData(response.data)
