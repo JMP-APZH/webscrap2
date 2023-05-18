@@ -75,5 +75,6 @@ app.get('/scrape-dairy', (req, res) => {
   });
   
   // app.listen(3010, () => console.log('Server Dairy running on port 3010'));
-  const listener = app.listen(process.env.PORT || 3010, () => console.log('Server Dairy running on port ' + addListener.address().port));
+  const listener = app.listen(process.env.PORT || 3010, () => {console.log('Server Dairy running on port ' + addListener.address().port);
+});
   
