@@ -30,7 +30,7 @@ router.get('/scrapecategories', (req, res) => {
   
       const categories = []
   
-      $('div.productInList', response.data).each(function() {
+      $('a.category-item', response.data).each(function() {
       const nomcat = $(this).find('div.category-infos').find('p.subtitle-item').text()
       const img = $(this).find('div.category-image').find('img').attr('src')
       categories.push({
@@ -38,7 +38,7 @@ router.get('/scrapecategories', (req, res) => {
         img,
       })
       })
-      console.log('articles from server:', categories)
+      console.log('categories from server:', categories)
       // res.header('Access-Control-Allow-Origin', '*');
       res.send(categories);
       // res.send('Hello, world!');
