@@ -8,7 +8,7 @@ const Dairy = () => {
 
   const handleClick = () => {
     // axios.get('http://localhost:3010/scrape')
-    axios.get('https://webscrap972.onrender.com/scrape-dairy')
+    axios.get('https://webscrap972.onrender.com/scrapall/scrapedairy')
       .then(response => {
         console.log('data from response from client:', response.data)
         setData(response.data)
