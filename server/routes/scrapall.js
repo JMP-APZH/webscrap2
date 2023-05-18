@@ -283,7 +283,7 @@ router.get('/scrapefruitslegumes', (req, res) => {
     router.get('/scrapeviandespoissons', (req, res) => {
 
 
-      const url = 'http://localhost:3015/scrape-viandespoissons';
+      const url = 'https://martinique.123-click.com/store/viandes-poissons';
       
       // axios.get(url)
       axios.get(url, {
