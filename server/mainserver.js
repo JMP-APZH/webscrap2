@@ -4,6 +4,8 @@ const axios = require('axios');
 
 const cors = require("cors");
 
+const port = process.env.PORT || 5001;
+
 const app = express()
 
 app.use(cors());
@@ -22,4 +24,7 @@ const scrapRouter = require('./routes/scrapall')
 
 app.use('/scrapall', scrapRouter)
 
-app.listen(5001)
+// app.listen(5001)
+app.listen(port, () => {
+    console.log(`Mainserver listening on port ${port}`);
+});
