@@ -8,25 +8,6 @@ const port = process.env.PORT || 3010;
 
 const app = express();
 
-// app.use(cors());
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Methods",
-//     "GET, HEAD, OPTIONS, POST, PUT, DELETE" 
-//   );
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   next();
-// });
-
-// app.use(cors({
-//   origin:"https://webscrap972.onrender.com/scrape-dairy",
-//   method: ["GET", "POST", "PUT", "DELETE"]
-// }))
-
 app.use(cors());
 app.options('*', cors())
 
@@ -66,7 +47,7 @@ app.get('/scrape-dairy', (req, res) => {
         })
       })
       console.log('articles from server:', articles)
-      res.header('Access-Control-Allow-Origin', '*');
+      // res.header('Access-Control-Allow-Origin', '*');
       res.send(articles);
       // res.send('Hello, world!');
    }).catch(error => {
