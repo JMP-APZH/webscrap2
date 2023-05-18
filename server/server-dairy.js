@@ -11,7 +11,7 @@ app.use(cors({
   method: ["GET", "POST", "PUT", "DELETE"]
 }))
 
-app.get('/scrape', (req, res) => {
+app.get('/scrape-dairy', (req, res) => {
   
   const url = 'https://martinique.123-click.com/store/frais';
   
