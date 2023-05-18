@@ -14,6 +14,40 @@ router.get('/', (req, res) => {
     res.send('All Scraps Overview working')
 })
 
+router.get('/scrapecategories', (req, res) => {
+
+
+  const url = 'https://martinique.123-click.com/store/frais';
+  
+  // axios.get(url)
+  axios.get(url, {
+  headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+  },
+  })
+  .then(response => {
+      const $ = cheerio.load(response.data);
+  
+      const categories = []
+  
+      $('div.productInList', response.data).each(function() {
+      const nomcat = $(this).find('div.category-infos').find('p.subtitle-item').text()
+      const img = $(this).find('div.category-image').find('img').attr('src')
+      categories.push({
+        nomcat,
+        img,
+      })
+      })
+      console.log('articles from server:', categories)
+      // res.header('Access-Control-Allow-Origin', '*');
+      res.send(categories);
+      // res.send('Hello, world!');
+  }).catch(error => {
+      console.log(error);
+      res.send(error);
+  });
+  });
+
 router.get('/scrapeboissons', (req, res) => {
 
 
