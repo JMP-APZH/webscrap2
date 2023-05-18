@@ -4,6 +4,8 @@ const axios = require('axios');
 
 const cors = require("cors");
 
+// const port = process.env.port
+
 const app = express();
 
 // app.use(cors());
@@ -73,5 +75,5 @@ app.get('/scrape-dairy', (req, res) => {
   });
   
   // app.listen(3010, () => console.log('Server Dairy running on port 3010'));
-  app.listen(3010, () => console.log('Server Dairy running on port 3010'));
+  const listener = app.listen(process.env.PORT || 3010, () => console.log('Server Dairy running on port ' + addListener.address().port));
   

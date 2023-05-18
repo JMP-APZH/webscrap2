@@ -10,7 +10,7 @@ const Dairy = () => {
     // axios.get('http://localhost:3010/scrape')
     axios.get('https://webscrap972.onrender.com/scrape-dairy')
       .then(response => {
-        console.log('data from response:', response.data)
+        console.log('data from response from client:', response.data)
         setData(response.data)
       })
       .catch(error => {
