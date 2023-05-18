@@ -7,7 +7,7 @@ const Surgeles = () => {
   const [data, setData] = useState([]);
 
   const handleClick = () => {
-    axios.get('http://localhost:3014/scrape-surgeles')
+    axios.get('https://webscrap972.onrender.com/scrapall/scrapesurgeles')
     .then(response => {
       console.log('data from response:', response.data)
       setData(response.data)
