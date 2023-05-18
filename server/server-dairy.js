@@ -20,10 +20,12 @@ const app = express();
 //   next();
 // });
 
-app.use(cors({
-  origin:"https://webscrap972.onrender.com/scrape-dairy",
-  method: ["GET", "POST", "PUT", "DELETE"]
-}))
+// app.use(cors({
+//   origin:"https://webscrap972.onrender.com/scrape-dairy",
+//   method: ["GET", "POST", "PUT", "DELETE"]
+// }))
+
+app.use(cors());
 app.options('*', cors())
 
 app.get('/scrape-dairy', (req, res) => {
@@ -62,7 +64,7 @@ app.get('/scrape-dairy', (req, res) => {
         })
       })
       console.log('articles from server:', articles)
-      res.header('Access-Control-Allow-Origin', '*');
+      // res.header('Access-Control-Allow-Origin', '*');
       res.send(articles);
    }).catch(error => {
       console.log(error);
