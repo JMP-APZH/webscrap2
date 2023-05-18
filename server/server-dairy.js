@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const cors = require("cors");
 
-// const port = process.env.port
+const port = process.env.PORT || 3010;
 
 const app = express();
 
@@ -66,7 +66,7 @@ app.get('*', '/scrape-dairy', (req, res) => {
         })
       })
       console.log('articles from server:', articles)
-      res.header('Access-Control-Allow-Origin', '*');
+      // res.header('Access-Control-Allow-Origin', '*');
       // res.send(articles);
       res.send('Hello, world!');
    }).catch(error => {
@@ -76,6 +76,8 @@ app.get('*', '/scrape-dairy', (req, res) => {
   });
   
   // app.listen(3010, () => console.log('Server Dairy running on port 3010'));
-  const listener = app.listen(process.env.PORT || 3010, () => {console.log('Server Dairy running on port ' + listener.address().port);
+  // const listener = app.listen(process.env.PORT || 3010, () => {console.log('Server Dairy running on port ' + listener.address().port);
+  app.listen(port, () => {
+    console.log(`Server Dairy listening on port ${port}`);
 });
   
