@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const cors = require("cors");
 
-// const port = process.env.PORT || 3010;
+const port = process.env.PORT || 3010;
 
 const app = express();
 
@@ -30,7 +30,7 @@ const app = express();
 app.use(cors());
 app.options('*', cors())
 
-app.get('https://webscrap972.onrender.com/scrape-dairy', (req, res) => {
+app.get('/scrape-dairy', (req, res) => {
   
   const url = 'https://martinique.123-click.com/store/frais';
   
@@ -75,9 +75,9 @@ app.get('https://webscrap972.onrender.com/scrape-dairy', (req, res) => {
     });
   });
   
-  app.listen(3010, () => console.log('Server Dairy running on port 3010'));
+  // app.listen(3010, () => console.log('Server Dairy running on port 3010'));
   // const listener = app.listen(process.env.PORT || 3010, () => {console.log('Server Dairy running on port ' + listener.address().port);
-//   app.listen(port, () => {
-//     console.log(`Server Dairy listening on port ${port}`);
-// });
+  app.listen(port, () => {
+    console.log(`Server Dairy listening on port ${port}`);
+});
   
