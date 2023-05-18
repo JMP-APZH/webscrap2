@@ -8,16 +8,10 @@ app.get('/', (req, res) => {
     res.render('index', { text: "Text from render working great" })
 })
 
-app.get('/allscraps', (req, res) => {
-    res.send('All Scraps Overview working')
-})
 
-app.get('/allscraps/scrapedairy', (req, res) => {
-    res.send('All Dairy Scraps Overview')
-})
 
 const scrapRouter = require('./routes/scrapall')
 
-app.use('/scrapingall', scrapRouter)
+app.use('/scrapall', scrapRouter)
 
 app.listen(5001)

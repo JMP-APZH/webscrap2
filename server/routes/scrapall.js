@@ -1,9 +1,15 @@
 const express = require("express")
 const router = express.Router()
 
-router.get("/scrapall", (req, res) => {
-    console.log(req.query.name)
-    res.send("Scrap All Overview")
-  })
+router.get('/', (req, res) => {
+    res.send('All Scraps Overview working')
+})
 
-  module.exports = router
+router.get('/scrapedairy', (req, res) => {
+    res.send('All Dairy Scraps Overview')
+})
+
+
+
+
+module.exports = router
