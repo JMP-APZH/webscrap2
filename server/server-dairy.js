@@ -21,7 +21,7 @@ const app = express();
 // });
 
 app.use(cors({
-  origin:"https://main--webscraping972.netlify.app/",
+  origin:"https://webscrap972.onrender.com/",
   method: ["GET", "POST", "PUT", "DELETE"]
 }))
 app.options('*', cors())
