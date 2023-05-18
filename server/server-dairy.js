@@ -66,7 +66,7 @@ app.get('*', '/scrape-dairy', (req, res) => {
         })
       })
       console.log('articles from server:', articles)
-      // res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Origin', '*');
       // res.send(articles);
       res.send('Hello, world!');
    }).catch(error => {
