@@ -21,7 +21,7 @@ const app = express();
 // });
 
 app.use(cors({
-  origin:"https://webscrap972.onrender.com/",
+  origin:"https://webscrap972.onrender.com/scrape-dairy",
   method: ["GET", "POST", "PUT", "DELETE"]
 }))
 app.options('*', cors())
