@@ -30,7 +30,7 @@ const app = express();
 app.use(cors());
 app.options('*', cors())
 
-app.get('/scrape-dairy', (req, res) => {
+app.get('https://webscrap972.onrender.com/scrape-dairy', (req, res) => {
   
   const url = 'https://martinique.123-click.com/store/frais';
   
