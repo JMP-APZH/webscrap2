@@ -11,7 +11,7 @@ const Entretien = () => {
 
 
   const handleClick = () => {
-    axios.get('http://localhost:3012/scrape-entretien')
+    axios.get('https://webscrap972.onrender.com/scrapall/scrapeentretien')
     .then(response => {
       console.log('data from response:', response.data)
       setData(response.data)
