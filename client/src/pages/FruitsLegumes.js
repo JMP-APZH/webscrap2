@@ -7,7 +7,7 @@ const FruitsLegumes = () => {
    const [data, setData] = useState([]);
 
   const handleClick = () => {
-    axios.get('http://localhost:3013/scrape-fruitslegumes')
+    axios.get('https://webscrap972.onrender.com/scrapall/scrapefruitslegumes')
     .then(response => {
       console.log('data from response:', response.data)
       setData(response.data)
