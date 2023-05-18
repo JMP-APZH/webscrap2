@@ -8,7 +8,7 @@ const Boissons = () => {
   // const [quantite, setQuantite] = useState('');
 
   const handleClick = () => {
-    axios.get('http://localhost:3011/scrape-boissons')
+    axios.get('https://webscrap972.onrender.com/scrapall/scrapeboissons')
     .then(response => {
       console.log('data from response:', response.data)
       setData(response.data)
