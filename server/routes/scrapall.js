@@ -117,7 +117,7 @@ headers: {
 .then(response => {
     const $ = cheerio.load(response.data);
 
-    const articles = []
+    const dairy = []
 
     $('div.product-list-affichage-mobile', response.data).each(function() {
     const nom = $(this).find('a').attr('title')
