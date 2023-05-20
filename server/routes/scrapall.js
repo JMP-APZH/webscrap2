@@ -18,7 +18,7 @@ router.get('/scrapecategories', (req, res) => {
 
 
   const url = 'https://martinique.123-click.com/store/frais';
-  
+
   // axios.get(url)
   axios.get(url, {
   headers: {
@@ -27,9 +27,9 @@ router.get('/scrapecategories', (req, res) => {
   })
   .then(response => {
       const $ = cheerio.load(response.data);
-  
+
       const categories = []
-  
+
       $('a.category-item', response.data).each(function() {
       const nomcat = $(this).find('div.category-infos').find('p.subtitle-item').text()
       const img = $(this).find('div.category-image').find('img').attr('src')
@@ -52,7 +52,7 @@ router.get('/scrapeboissons', (req, res) => {
 
 
     const url = 'https://martinique.123-click.com/store/boissons';
-  
+
   // axios.get(url)
   axios.get(url, {
     headers: {
@@ -61,9 +61,9 @@ router.get('/scrapeboissons', (req, res) => {
   })
     .then(response => {
         const $ = cheerio.load(response.data);
-  
+
         const boissons = []
-  
+
         $('div.productInList', response.data).each(function() {
         const nom = $(this).find('a').attr('title')
         const url = $(this).find('a').attr('href')
@@ -118,7 +118,7 @@ headers: {
 
     const articles = []
 
-    $('div.productInList', response.data).each(function() {
+    $('div.product-list-affichage-mobile', response.data).each(function() {
     const nom = $(this).find('a').attr('title')
     const url = $(this).find('a').attr('href')
     const prix = $(this).find('p.price-full').text()
@@ -144,10 +144,20 @@ headers: {
         nutriscore,
         url,
     })
+
+
     })
-    console.log('articles from server:', articles)
+    let uniqueArticles = [...new Set(articles)]
+    // let uniqueArticles = [];
+    // articles.forEach((element) => {
+    //     if (!uniqueArticles.includes(element)) {
+    //         uniqueArticles.push(element);
+    //     }
+    // });
+
+    console.log('articles from server:', uniqueArticles)
     // res.header('Access-Control-Allow-Origin', '*');
-    res.send(articles);
+    res.send(uniqueArticles);
     // res.send('Hello, world!');
 }).catch(error => {
     console.log(error);
@@ -171,7 +181,7 @@ axios.get(url, {
 
       const entretien = []
 
-      $('div.productInList', response.data).each(function() {
+      $('div.product-list-affichage-mobile', response.data).each(function() {
       const nom = $(this).find('a').attr('title')
       const url = $(this).find('a').attr('href')
       const prix = $(this).find('p.price-full').text()
@@ -198,9 +208,10 @@ axios.get(url, {
           url,
       })
     })
-    console.log('entretien from server:', entretien)
+    let uniqueEntretien = [...new Set(entretien)]
+    console.log('entretien from server:', uniqueEntretien)
     // res.header('Access-Control-Allow-Origin', '*');
-    res.send(entretien);
+    res.send(uniqueEntretien);
     // res.send('Hello, world!');
  }).catch(error => {
     console.log(error);
@@ -212,7 +223,7 @@ router.get('/scrapefruitslegumes', (req, res) => {
 
 
   const url = 'https://martinique.123-click.com/store/fruits-legumes';
-  
+
   // axios.get(url)
   axios.get(url, {
   headers: {
@@ -221,9 +232,9 @@ router.get('/scrapefruitslegumes', (req, res) => {
   })
   .then(response => {
       const $ = cheerio.load(response.data);
-  
+
       const fruitslegumes = []
-  
+
       $('div.productInList', response.data).each(function() {
       const nom = $(this).find('a').attr('title')
       const url = $(this).find('a').attr('href')
@@ -265,7 +276,7 @@ router.get('/scrapefruitslegumes', (req, res) => {
 
 
     const url = 'https://martinique.123-click.com/store/surgeles';
-    
+
     // axios.get(url)
     axios.get(url, {
     headers: {
@@ -274,9 +285,9 @@ router.get('/scrapefruitslegumes', (req, res) => {
     })
     .then(response => {
         const $ = cheerio.load(response.data);
-    
+
         const surgeles = []
-    
+
         $('div.productInList', response.data).each(function() {
         const nom = $(this).find('a').attr('title')
         const url = $(this).find('a').attr('href')
@@ -318,7 +329,7 @@ router.get('/scrapefruitslegumes', (req, res) => {
 
 
       const url = 'https://martinique.123-click.com/store/viandes-poissons';
-      
+
       // axios.get(url)
       axios.get(url, {
       headers: {
@@ -327,9 +338,9 @@ router.get('/scrapefruitslegumes', (req, res) => {
       })
       .then(response => {
           const $ = cheerio.load(response.data);
-      
+
           const viandespoissons = []
-      
+
           $('div.productInList', response.data).each(function() {
           const nom = $(this).find('a').attr('title')
           const url = $(this).find('a').attr('href')
