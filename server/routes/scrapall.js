@@ -64,7 +64,7 @@ router.get('/scrapeboissons', (req, res) => {
 
         const boissons = []
 
-        $('div.productInList', response.data).each(function() {
+        $('div.product-list-affichage-mobile', response.data).each(function() {
         const nom = $(this).find('a').attr('title')
         const url = $(this).find('a').attr('href')
         const prix = $(this).find('p.price-full').text()
@@ -91,9 +91,10 @@ router.get('/scrapeboissons', (req, res) => {
             url,
         })
       })
-      console.log('boissons from server:', boissons)
+      let uniqueBoissons = [...new Set(boissons)]
+      console.log('boissons from server:', uniqueBoissons)
       // res.header('Access-Control-Allow-Origin', '*');
-      res.send(boissons);
+      res.send(uniqueBoissons);
       // res.send('Hello, world!');
    }).catch(error => {
       console.log(error);
@@ -132,7 +133,7 @@ headers: {
     const nutriscore = $(this).find('div.picto-item').find('img').attr('src')
     const web = 'https://martinique.123-click.com'
     const nutrifull = web.concat(nutriscore)
-    articles.push({
+    dairy.push({
         nom,
         prix,
         prixspecial,
@@ -147,7 +148,7 @@ headers: {
 
 
     })
-    let uniqueArticles = [...new Set(articles)]
+    let uniqueDairy = [...new Set(dairy)]
     // let uniqueArticles = [];
     // articles.forEach((element) => {
     //     if (!uniqueArticles.includes(element)) {
@@ -155,9 +156,9 @@ headers: {
     //     }
     // });
 
-    console.log('articles from server:', uniqueArticles)
+    console.log('articles from server:', uniqueDairy)
     // res.header('Access-Control-Allow-Origin', '*');
-    res.send(uniqueArticles);
+    res.send(uniqueDairy);
     // res.send('Hello, world!');
 }).catch(error => {
     console.log(error);
