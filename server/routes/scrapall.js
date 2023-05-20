@@ -236,7 +236,7 @@ router.get('/scrapefruitslegumes', (req, res) => {
 
       const fruitslegumes = []
 
-      $('div.productInList', response.data).each(function() {
+      $('div.product-list-affichage-mobile', response.data).each(function() {
       const nom = $(this).find('a').attr('title')
       const url = $(this).find('a').attr('href')
       const prix = $(this).find('p.price-full').text()
@@ -263,9 +263,10 @@ router.get('/scrapefruitslegumes', (req, res) => {
           url,
       })
       })
-      console.log('articles from server:', fruitslegumes)
+      let uniqueFruitslegumes = [...new Set(fruitslegumes)]
+      console.log('articles from server:', uniqueFruitslegumes)
       // res.header('Access-Control-Allow-Origin', '*');
-      res.send(fruitslegumes);
+      res.send(uniqueFruitslegumes);
       // res.send('Hello, world!');
   }).catch(error => {
       console.log(error);
