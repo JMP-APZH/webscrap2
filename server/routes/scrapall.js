@@ -3,6 +3,7 @@ const router = express.Router()
 
 const cheerio = require('cheerio');
 const axios = require('axios');
+const puppeteer = require('puppeteer')
 
 const cors = require("cors");
 
@@ -165,6 +166,34 @@ headers: {
     res.send(error);
 });
 });
+
+
+// For infinite scroll scrap:
+
+const scrapeInfiniteScrollItems = async (page) => {
+  while (true) {
+    previousHeight = await page.evaluate("document.body.scrollHeight");
+    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
+    await page.waitForFunction(
+      `document.body.scrollHeight > ${previousHeight}`
+      );
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  }
+  
+}
+
+(async () => {
+  const browser = await puppeteer.launch({
+    headless: false,
+  });
+  const page = await browser.newPage();
+  await page.goto('https://martinique.123-click.com/store/frais');
+
+  await scrapeInfiniteScrollItems(page);
+  
+})();
+
 
 router.get('/scrapeentretien', (req, res) => {
 
