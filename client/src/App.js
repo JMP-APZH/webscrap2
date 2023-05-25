@@ -6,6 +6,7 @@ import { Router, Route, Routes } from "react-router-dom"
 import Navbar from "./Navbar"
 import Home from "./pages/Home"
 import Dairy from "./pages/Dairy"
+import Dairy2 from "./pages/Dairy2"
 import Boissons from "./pages/Boissons"
 import Entretien from './pages/Entretien';
 import FruitsLegumes from './pages/FruitsLegumes';
@@ -40,6 +41,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/boissons" element={<Boissons />} />
             <Route path="/dairy" element={<Dairy />} />
+            <Route path="/dairy" element={<Dairy2 />} />
             <Route path="/entretien" element={<Entretien />} />
             <Route path="/fruits-legumes" element={<FruitsLegumes />} />
             <Route path="/surgeles" element={<Surgeles />} />
