@@ -26,7 +26,7 @@ const Dairy2 = () => {
             <div>
               <h1 className='text-center'>Dairy prices review</h1>
               <div className='text-center bg-black text-white w-60 rounded-full m-5'>
-                <button onClick={handleClick}>Scrape Dairy</button>
+                <button onClick={handleClick}>Scrape Dairy 2</button>
               </div> 
             </div>
           <div>
