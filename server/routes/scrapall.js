@@ -4,6 +4,7 @@ const router = express.Router()
 const cheerio = require('cheerio');
 const axios = require('axios');
 const puppeteer = require('puppeteer')
+const fs = require('fs')
 
 const cors = require("cors");
 
@@ -170,29 +171,60 @@ headers: {
 
 // For infinite scroll scrap:
 
-const scrapeInfiniteScrollItems = async (page) => {
-  while (true) {
-    previousHeight = await page.evaluate("document.body.scrollHeight");
-    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
-    await page.waitForFunction(
-      `document.body.scrollHeight > ${previousHeight}`
-      );
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+const url = 'https://martinique.123-click.com/store/frais';
+
+// axios.get(url)
+axios.get(url, {
+headers: {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+},
+})
+.then(response => {
+
+  const scrapeInfiniteScrollItems = async (page, itemTargetCount) => {
+
+    let items = [];
+    
+    while (itemTargetCount > items.length) {
+      items = await page.evaluate(() => {
+        const items = Array.from(document.querySelectorAll("#desc > div"));
+        return items.map((item) => item.innerText);
+        // return items.map((item) => ({
+        //   name: item.querySelector('a').innerText,
+        // }))
+      })
+        console.log(items.length)
+        console.log(items)
+
+        return items
+  
+      
+      previousHeight = await page.evaluate("document.body.scrollHeight");
+      await page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
+      await page.waitForFunction(
+        `document.body.scrollHeight > ${previousHeight}`
+        );
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
     }
+    
   }
   
+  (async () => {
+    const browser = await puppeteer.launch({
+      headless: false,
+    });
+    const page = await browser.newPage();
+    await page.goto('https://martinique.123-click.com/store/frais');
+  
+    const items = await scrapeInfiniteScrollItems(page, 100);
+      fs.writeFileSync('items.json', JSON.stringify(items));
+      
+  })();
+
 }
 
-(async () => {
-  const browser = await puppeteer.launch({
-    headless: false,
-  });
-  const page = await browser.newPage();
-  await page.goto('https://martinique.123-click.com/store/frais');
 
-  await scrapeInfiniteScrollItems(page);
-  
-})();
 
 
 router.get('/scrapeentretien', (req, res) => {
