@@ -229,47 +229,47 @@ router.get('/scrapedairy2', (req, res) => {
 // })
 // .then(response => {
 
-  const scrapeInfiniteScrollItems = async (page, itemTargetCount) => {
+  // const scrapeInfiniteScrollItems = async (page, itemTargetCount) => {
 
-    let items = [];
+  //   let items = [];
     
-    while (itemTargetCount > items.length) {
-      items = await page.evaluate(() => {
-        const items = Array.from(document.querySelectorAll("#desc > div"));
-        return items.map((item) => item.innerText);
-        // return items.map((item) => ({
-        //   name: item.querySelector('a').innerText,
-        // }))
-      })
-        console.log(items.length)
-        console.log(items)
+  //   while (itemTargetCount > items.length) {
+  //     items = await page.evaluate(() => {
+  //       const items = Array.from(document.querySelectorAll("#desc > div"));
+  //       return items.map((item) => item.innerText);
+  //       // return items.map((item) => ({
+  //       //   name: item.querySelector('a').innerText,
+  //       // }))
+  //     })
+  //       console.log(items.length)
+  //       console.log(items)
 
-        return items
+  //       return items
   
       
-      previousHeight = await page.evaluate("document.body.scrollHeight");
-      await page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
-      await page.waitForFunction(
-        `document.body.scrollHeight > ${previousHeight}`
-        );
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      }
-    }
+  //     previousHeight = await page.evaluate("document.body.scrollHeight");
+  //     await page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
+  //     await page.waitForFunction(
+  //       `document.body.scrollHeight > ${previousHeight}`
+  //       );
+  //     await new Promise((resolve) => setTimeout(resolve, 1000));
+  //     }
+  //   }
     
-  // }
+  // // }
   
-  (async () => {
-    const browser = await puppeteer.launch({
-      headless: false,
-    });
+  // (async () => {
+  //   const browser = await puppeteer.launch({
+  //     headless: false,
+  //   });
 
-    const page = await browser.newPage();
-    await page.goto('https://martinique.123-click.com/store/frais');
+  //   const page = await browser.newPage();
+  //   await page.goto('https://martinique.123-click.com/store/frais');
   
-    const items = await scrapeInfiniteScrollItems(page, 100);
-      fs.writeFileSync('items.json', JSON.stringify(items));
+  //   const items = await scrapeInfiniteScrollItems(page, 100);
+  //     fs.writeFileSync('items.json', JSON.stringify(items));
 
-  })();
+  // })();
 
 // }
 
